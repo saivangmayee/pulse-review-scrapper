@@ -1,0 +1,33 @@
+{
+  "source": "trustpilot",
+  "company_input": "notion.so",
+  "start_date": "2024-06-01",
+  "end_date": "2024-12-31",
+  "count": 3,
+  "reviews": [
+    {
+      "title": "Site doesn't work most of the...",
+      "review": "Site doesn't work most of the time. I'm using notion since 2020 I guess. Still can't make it my primary note taking app. Why? Cause there are millions of issues with the site. \nEven now I've sat do... See more",
+      "date": "2024-12-28",
+      "rating": "",
+      "reviewer": "Hossen Imran",
+      "source": "trustpilot"
+    },
+    {
+      "title": "I just received a change email...",
+      "review": "I just received a change email address verification code from Notion.  I've never heard of Notion, nor do I have an account with them.  It's the weekend therefore I will have to wait to reach out to t... See more",
+      "date": "2024-12-22",
+      "rating": "",
+      "reviewer": "Joanna",
+      "source": "trustpilot"
+    },
+    {
+      "title": "Warning! Do not Pay for this...",
+      "review": "Warning! Do not Pay for this shit, they will continue making withdrawals from your account after you cancel and it is impossible to get in touch with them. \nYesterday they withdrew 770USD from my acc... See more",
+      "date": "2024-12-31",
+      "rating": "",
+      "reviewer": "Espen Liland",
+      "source": "trustpilot"
+    }
+  ]
+}
