@@ -1,4 +1,4 @@
-Pulse Review Scraper
+## Pulse Review Scraper
 
 Pulse Review Scraper is a Python-based CLI tool that collects SaaS product reviews from multiple platforms and exports them as structured JSON within a specified date range.
 
