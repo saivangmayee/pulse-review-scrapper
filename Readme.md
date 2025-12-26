@@ -46,6 +46,8 @@ Output Format
 
 ## Each run produces a JSON file with the following structure:
 
+
+```json
 {
   "source": "trustpilot",
   "company_input": "notion.so",
@@ -63,6 +65,7 @@ Output Format
     }
   ]
 }
+```
 
 ## Notes / Limitations
 
