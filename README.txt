@@ -1,38 +1,47 @@
 Pulse Review Scraper
 
-This project implements a Python-based scraper to collect SaaS product reviews
-from multiple platforms and export them as structured JSON within a given
-date range.
+Pulse Review Scraper is a Python-based CLI tool that collects SaaS product reviews from multiple platforms and exports them as structured JSON within a specified date range.
+
+The project is designed to be extensible, fault-tolerant, and production-aware, gracefully handling blocked sources while maintaining a consistent output format.
 
 Supported Platforms
-- G2
-- Capterra
-- Trustpilot (additional source to demonstrate extensibility)
+
+G2
+
+Capterra
+
+Trustpilot (included to demonstrate full end-to-end functionality)
 
 Project Structure
-- scraper.py            : Main CLI entry point
-- sources/              : Platform-specific scrapers (g2, capterra, trustpilot)
-- utils/                : Shared utilities (date parsing, HTTP helpers)
-- output/               : Generated JSON outputs
-- requirements.txt      : Python dependencies
+scraper.py            # Main CLI entry point
+sources/              # Platform-specific scrapers (g2, capterra, trustpilot)
+utils/                # Shared utilities (date parsing, HTTP helpers)
+output/               # Generated JSON outputs
+requirements.txt      # Python dependencies
 
 How to Run
+1. Create and activate a virtual environment
+python3 -m venv .venv
+source .venv/bin/activate
 
-1. Create and activate virtual environment:
-   python3 -m venv .venv
-   source .venv/bin/activate
+2. Install dependencies
+pip install -r requirements.txt
 
-2. Install dependencies:
-   pip install -r requirements.txt
+3. Run the scraper
+python scraper.py \
+  --source trustpilot \
+  --company notion.so \
+  --start_date 2024-06-01 \
+  --end_date 2024-12-31 \
+  --out output/notion_trustpilot.json
 
-3. Run the scraper:
-   python scraper.py \
-     --source trustpilot \
-     --company notion.so \
-     --start_date 2024-06-01 \
-     --end_date 2024-12-31 \
-     --out output/notion_trustpilot.json
-
+CLI Arguments
+Argument	Description
+--source	Review source (g2, capterra, trustpilot)
+--company	Company name or domain
+--start_date	Start date (YYYY-MM-DD)
+--end_date	End date (YYYY-MM-DD)
+--out	Output JSON file path
 Output Format
 
 Each run produces a JSON file with the following structure:
@@ -57,17 +66,36 @@ Each run produces a JSON file with the following structure:
 
 Notes / Limitations
 
-- During testing, both G2 and Capterra returned HTTP 403 due to bot protection
-  in this environment.
-- The scrapers for G2 and Capterra are fully implemented and the pipeline
-  handles these cases gracefully by returning an empty result set instead of
-  failing.
-- Trustpilot output is included to demonstrate full end-to-end functionality
-  (scraping, date filtering, normalization, and JSON export).
+During testing, both G2 and Capterra returned HTTP 403 errors due to bot protection in this environment.
+
+Scrapers for G2 and Capterra are fully implemented, and the pipeline handles these cases gracefully by returning an empty result set instead of failing.
+
+Trustpilot output is included to demonstrate full end-to-end functionality:
+
+scraping
+
+date filtering
+
+normalization
+
+JSON export
 
 Production Considerations
 
-In a production environment, this would be handled by:
-- Using official APIs or licensed data feeds where available
-- Using browser automation (Playwright/Selenium) where permitted
-- Implementing retry, backoff, and monitoring for blocked sources
+In a production environment, this scraper would be enhanced by:
+
+Using official APIs or licensed data feeds where available
+
+Using browser automation tools such as Playwright or Selenium where permitted
+
+Implementing retry logic, exponential backoff, and monitoring for blocked sources
+
+Extensibility
+
+New platforms can be added by:
+
+Creating a new scraper module under sources/
+
+Implementing the common review schema
+
+Registering the new source in scraper.py
