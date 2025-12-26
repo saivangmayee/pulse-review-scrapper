@@ -1,10 +1,10 @@
-Pulse Review Scraper
+##Pulse Review Scraper
 
 Pulse Review Scraper is a Python-based CLI tool that collects SaaS product reviews from multiple platforms and exports them as structured JSON within a specified date range.
 
 The project is designed to be extensible, fault-tolerant, and production-aware, gracefully handling blocked sources while maintaining a consistent output format.
 
-Supported Platforms
+#Supported Platforms
 
 G2
 
@@ -12,14 +12,14 @@ Capterra
 
 Trustpilot (included to demonstrate full end-to-end functionality)
 
-Project Structure
+#Project Structure
 scraper.py            # Main CLI entry point
 sources/              # Platform-specific scrapers (g2, capterra, trustpilot)
 utils/                # Shared utilities (date parsing, HTTP helpers)
 output/               # Generated JSON outputs
 requirements.txt      # Python dependencies
 
-How to Run
+#How to Run
 1. Create and activate a virtual environment
 python3 -m venv .venv
 source .venv/bin/activate
@@ -35,7 +35,7 @@ python scraper.py \
   --end_date 2024-12-31 \
   --out output/notion_trustpilot.json
 
-CLI Arguments
+#CLI Arguments
 Argument	Description
 --source	Review source (g2, capterra, trustpilot)
 --company	Company name or domain
@@ -44,7 +44,7 @@ Argument	Description
 --out	Output JSON file path
 Output Format
 
-Each run produces a JSON file with the following structure:
+#Each run produces a JSON file with the following structure:
 
 {
   "source": "trustpilot",
@@ -64,7 +64,7 @@ Each run produces a JSON file with the following structure:
   ]
 }
 
-Notes / Limitations
+#Notes / Limitations
 
 During testing, both G2 and Capterra returned HTTP 403 errors due to bot protection in this environment.
 
